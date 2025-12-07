@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import dynamic from 'next/dynamic'
 import Splash from '../components/Splash'
 import Auth from '../components/Auth'
+import Editor from '../components/Editor'
 import {useStore} from '../store/useStore'
-
-const Editor = dynamic(() => import('../components/Editor'), { ssr: false })
 
 export default function Home(){
   const [showSplash,setShowSplash] = useState(true)

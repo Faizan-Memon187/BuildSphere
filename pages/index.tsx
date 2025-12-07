@@ -14,7 +14,11 @@ export default function Home(){
 
   useEffect(() => {
     setMounted(true)
-  }, [])
+    // Auto-login for demo purposes
+    if (!user) {
+      setUser({ id: 'demo_user', email: 'demo@buildsphere.com' })
+    }
+  }, [user, setUser])
 
   useEffect(()=>{
     // when splash finishes, fade out handled in CSS by adding class
@@ -24,7 +28,8 @@ export default function Home(){
     return <Splash onFinish={()=>setShowSplash(false)} />
   }
 
-  if(!user) return <Auth onLogin={(u)=>setUser(u)} />
+  // Skip auth screen - auto-login enabled
+  // if(!user) return <Auth onLogin={(u)=>setUser(u)} />
 
   if(!mounted) return <div style={{height:'100vh',display:'flex',alignItems:'center',justifyContent:'center',color:'#c2d3de'}}>Loading...</div>
 

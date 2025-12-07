@@ -10,10 +10,12 @@ export default function Splash({onFinish}:{onFinish:()=>void}){
     return ()=>{ clearTimeout(startFade); clearTimeout(endAll) }
   },[onFinish])
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/BuildSphere' : ''
+  
   return (
     <div className={`splash-root ${fading? 'splash-fade':''}`}>
       <div className="logo-wrap">
-        <img src="/logo.svg" className="logo" alt="BuildSphere" />
+        <img src={`${basePath}/logo.svg`} className="logo" alt="BuildSphere" />
       </div>
       <div style={{marginTop:18,color:'#d2e6ee'}}>Design your space in 3D — simple, fast, beautiful</div>
     </div>

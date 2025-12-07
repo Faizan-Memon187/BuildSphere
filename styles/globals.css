@@ -1,0 +1,106 @@
+:root{
+  --bg:#060d15;
+  --bg-gradient:radial-gradient(1200px 800px at 15% 15%, #091a2b 0%, #061320 35%, #04101c 55%, #030b14 75%, #02070d 100%);
+  --panel:#0f1f2c;
+  --panel-gradient:linear-gradient(135deg, rgba(20,40,60,0.55) 0%, rgba(10,25,38,0.55) 48%, rgba(8,21,34,0.55) 100%);
+  --muted:#95a7b6;
+  --accent:#4fd1c5;
+  --accent-glow:#5be8d9;
+  --gradient-text:linear-gradient(90deg,#4fd1c5 0%,#5ba8ff 50%,#b07dff 100%);
+  --accent-gradient:linear-gradient(135deg, #4fd1c5 0%, #5ba8ff 50%, #b07dff 100%);
+  --panel-card-gradient:linear-gradient(155deg, rgba(15,31,44,0.95) 0%, rgba(12,24,35,0.95) 50%, rgba(10,20,30,0.95) 100%);
+}
+html,body,#__next{height:100%;}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg-gradient);
+  color:#ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+/* Splash */
+.splash-root{height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.logo-wrap{width:100%;max-width:800px;height:200px;display:flex;align-items:center;justify-content:center;padding:0 20px}
+.logo{width:100%;height:auto;max-height:200px;opacity:0;transform:scale(0.98);animation:logoIn 1.3s ease-out forwards, logoFloat 4s ease-in-out 1.6s infinite}
+@keyframes logoIn{to{opacity:1;transform:scale(1)}}
+@keyframes logoFloat{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.splash-fade{animation:splashOut 1.6s ease-in-out forwards}
+@keyframes splashOut{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.98);visibility:hidden}}
+/* App layout */
+.app-shell{display:flex;height:100vh}
+.sidebar{width:280px;background:var(--panel-gradient);backdrop-filter:blur(10px);border-right:1px solid rgba(255,255,255,0.07);padding:18px;box-sizing:border-box;position:relative;box-shadow:inset 0 1px 0 rgba(79,209,197,0.05)}
+.main{flex:1;padding:18px}
+.toolbar{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.canvas-placeholder{height:70vh;background:linear-gradient(145deg, rgba(79,209,197,0.04), rgba(91,168,255,0.03), rgba(255,255,255,0.015));border:1px solid rgba(79,209,197,0.1);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(79,209,197,0.08)}
+.canvas-placeholder:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg, rgba(79,209,197,0.12), rgba(91,168,255,0.08), rgba(176,125,255,0.1));opacity:.5;pointer-events:none;animation:shimmer 8s ease-in-out infinite}
+@keyframes shimmer{0%{opacity:.5}50%{opacity:.7}100%{opacity:.5}}
+/* Modal custom tweaks */
+.modal-backdrop{background:rgba(2,6,10,0.6)!important}
+.modal-content{color:#ffffff}
+.modal-title{color:#ffffff}
+.modal-body .text-muted{color:#ffffff!important}
+.list-group-item{color:#ffffff}
+.list-group-item:hover{color:var(--accent);background:rgba(79,209,197,0.03)}
+.btn-accent{background:transparent;border:1px solid rgba(79,209,197,0.5);color:#ffffff!important;font-weight:600;transition:box-shadow .4s ease, transform .25s ease, background .3s ease, border-color .3s ease}
+.btn-accent:hover{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45);transform:translateY(-2px);color:#ffffff!important;border-color:rgba(79,209,197,0.5)}
+.btn-outline-light{border:1px solid rgba(79,209,197,0.5) !important;color:#ffffff;background:transparent;transition:box-shadow .4s ease, transform .25s ease, background .3s ease, border-color .3s ease}
+.btn-outline-light:hover{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45);transform:translateY(-2px);border-color:rgba(79,209,197,0.5);color:#ffffff!important}
+.btn-secondary{background:transparent!important;border:1px solid rgba(79,209,197,0.5)!important;color:#ffffff!important;transition:box-shadow .4s ease, transform .25s ease, background .3s ease, border-color .3s ease}
+.btn-secondary:hover{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45);transform:translateY(-2px);border-color:rgba(79,209,197,0.5);color:#fff}
+.btn-close:hover,
+.btn-close-white:hover{box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45)!important;transform:translateY(-2px)!important;border-color:rgba(79,209,197,0.5)!important}
+.form-control-dark{background:#071821;border:1px solid rgba(255,255,255,0.12);color:#ffffff}
+/* Custom letter-based close button */
+.modal-header{position:relative}
+.btn-close-custom{display:flex;align-items:center;justify-content:center;position:absolute;top:8px;right:10px;width:32px;height:32px;font-size:18px;font-weight:600;line-height:1;color:#ffffff;background:transparent;border:1px solid rgba(79,209,197,0.5);border-radius:6px;padding:0;cursor:pointer;transition:box-shadow .4s ease, transform .25s ease, background .3s ease, border-color .3s ease}
+.btn-close-custom:hover{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45);transform:translateY(-2px);color:#ffffff;border-color:rgba(79,209,197,0.5)}
+.form-control-dark:focus{background:#0c2230;color:#fff;border-color:#4fd1c5;box-shadow:0 0 0 2px rgba(79,209,197,0.25)}
+small.note{color:var(--muted)}
+
+/* Gradient text utility */
+.gradient-text{background:var(--gradient-text);-webkit-background-clip:text;color:transparent;background-clip:text;font-weight:700;letter-spacing:.5px}
+
+/* Nav tabs dark styling */
+.nav-tabs .nav-link{background:rgba(255,255,255,0.05);border:1px solid rgba(79,209,197,0.5) !important;color:#dbe4eb;margin-right:4px;border-bottom:none;transition:box-shadow .4s ease, transform .25s ease, background .3s ease, border-color .3s ease}
+.nav-tabs .nav-link:hover{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45);transform:translateY(-2px);color:#ffffff!important;border-color:rgba(79,209,197,0.5)}
+.nav-tabs .nav-link.active{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;color:#ffffff!important;border:1px solid rgba(79,209,197,0.5) !important;box-shadow:0 0 0 4px rgba(95,232,217,0.15),0 4px 14px -4px rgba(95,232,217,0.45);transform:translateY(-2px)}
+.card{background:linear-gradient(155deg,#0a1822 0%,#08141d 50%,#07131b 100%)!important;border:1px solid rgba(255,255,255,0.08)!important;color:#ffffff}
+.card .text-muted{color:var(--muted)!important;font-size:14px}
+.card-title{font-weight:700;font-size:32px;color:var(--muted)!important}
+/* Scrollbar subtle */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#06121b}
+::-webkit-scrollbar-thumb{background:#132b3b;border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:#1f3d52}
+
+/* Ensure UI text contrast and hover accent */
+.sidebar, .main { color: #ffffff }
+.sidebar h5, .sidebar strong { color: #ffffff }
+.sidebar .btn, .main .btn, .toolbar .btn { color: #ffffff }
+.sidebar .btn:hover, .main .btn:hover { color: #ffffff!important; }
+.list-group-item:hover { color: var(--accent); background:rgba(79,209,197,0.03)}
+.toolbar .text-muted{color:var(--muted)}
+.toolbar .text-muted:hover{color:var(--accent)}
+
+/* Ensure all buttons have visible accent borders */
+.btn,
+.btn-accent,
+.btn-outline-light,
+.btn-secondary,
+.btn-close,
+.nav-tabs .nav-link{
+  border:1px solid rgba(79,209,197,0.5) !important;
+}
+
+/* On hover/active, maintain border and add effects */
+.btn:hover,
+.btn:focus,
+.btn-outline-light:hover,
+.btn-secondary:hover,
+.btn-accent:hover,
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link.active,
+.btn-close:hover{
+  border-color:rgba(79,209,197,0.5) !important;
+}

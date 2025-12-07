@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components\\\\Editor.tsx -> ./Viewport3D\":{\"id\":\"components\\\\Editor.tsx -> ./Viewport3D\",\"files\":[\"static/chunks/components_Viewport3D_tsx.js\"]},\"pages\\\\index.tsx -> ../components/Editor\":{\"id\":\"pages\\\\index.tsx -> ../components/Editor\",\"files\":[\"static/chunks/components_Editor_tsx.js\"]}}"

@@ -4,9 +4,9 @@ export default function Splash({onFinish}:{onFinish:()=>void}){
   const [fading,setFading] = useState(false)
 
   useEffect(()=>{
-    // Show briefly, then fade slowly, then finish
-    const startFade = setTimeout(()=> setFading(true), 1600)
-    const endAll = setTimeout(()=> onFinish(), 1600 + 1600) // match CSS 1.6s fade
+    // Show briefly, then fade, then finish
+    const startFade = setTimeout(()=> setFading(true), 800)
+    const endAll = setTimeout(()=> onFinish(), 1600)
     return ()=>{ clearTimeout(startFade); clearTimeout(endAll) }
   },[onFinish])
 

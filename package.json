@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "powershell -Command \"if (Test-Path './docs') { Remove-Item -Recurse -Force './docs' }; if (Test-Path './out') { Remove-Item -Recurse -Force './out' }; npx next build; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; Rename-Item -Path './out' -NewName './docs'\""
+    "export": "powershell -Command \"$env:NODE_ENV='production'; if (Test-Path './docs') { Remove-Item -Recurse -Force './docs' }; if (Test-Path './out') { Remove-Item -Recurse -Force './out' }; npx next build; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; Rename-Item -Path './out' -NewName './docs'\""
   },
   "dependencies": {
     "@react-three/drei": "^9.88.0",

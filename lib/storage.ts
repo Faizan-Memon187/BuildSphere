@@ -4,7 +4,7 @@ export type Scene = {
   floorHeight: number // Height per floor in meters
   items: Array<{
     id: string
-    kind: 'wall'|'window'|'door'|'furniture'
+    kind: 'wall'|'window'|'door'|'furniture'|'roof'
     subtype: string
     floor: number // Which floor (0=ground, 1=first, etc.)
     position: { x: number; y: number; z: number }
